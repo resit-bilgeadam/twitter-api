@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "name": "Comment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 240
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comments"
+    },
+    "twit": {
+      "model": "twit",
+      "via": "comments"
+    },
+    "comment_likes": {
+      "via": "comment",
+      "collection": "comment-like"
+    }
+  }
+}

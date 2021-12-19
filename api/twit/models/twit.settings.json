@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "twits",
+  "info": {
+    "name": "Twit",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 240
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "twits"
+    },
+    "likes": {
+      "via": "twit",
+      "collection": "like"
+    },
+    "comments": {
+      "via": "twit",
+      "collection": "comment"
+    }
+  }
+}

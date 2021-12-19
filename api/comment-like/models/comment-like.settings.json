@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comment_likes",
+  "info": {
+    "name": "Comment_Like"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comment_likes"
+    },
+    "comment": {
+      "model": "comment",
+      "via": "comment_likes"
+    }
+  }
+}
